@@ -49,10 +49,11 @@ export default function Home() {
         }
     };
     const camera = async() => {
-        console.log('ikan')
+        if (folder !== ''){
             launchCamera({
                 mediaType: 'photo',
                 saveToPhotos: true,
+                includeBase64: true
             }, async(response) => {
                 if (response.base64) {
                     let waktu = String(Date.now());
@@ -66,6 +67,7 @@ export default function Home() {
                         })
                 }
             });
+        }
         
     }
     const handleUploadPhoto = async () => {
